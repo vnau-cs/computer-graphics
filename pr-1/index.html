@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Лабораторна робота № 1 з комп'ютерної графіки"
+    />
+    <title>Лабораторна робота № 1</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">Комп’ютерна графіка</p>
+        <h1>Лабораторна робота № 1</h1>
+        <p class="subtitle">Формати зображень, Canvas і SVG</p>
+
+        <dl class="student-info">
+          <div>
+            <dt>Виконав(ла):</dt>
+            <dd><!-- TODO: укажіть прізвище та ім’я --></dd>
+          </div>
+          <div>
+            <dt>Група:</dt>
+            <dd><!-- TODO: укажіть групу --></dd>
+          </div>
+          <div>
+            <dt>Варіант:</dt>
+            <dd><!-- TODO: укажіть номер варіанта --></dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="work-section" aria-labelledby="formats-title">
+        <h2 id="formats-title">1. Порівняння графічних форматів</h2>
+        <p>
+          Додайте фотографію JPEG, зображення PNG та логотип, піктограму або
+          схему SVG. Заповніть таблицю результатами дослідження.
+        </p>
+
+        <div class="image-gallery" aria-label="Приклади графічних файлів">
+          <!-- TODO: додайте сюди три елементи figure із зображеннями -->
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Зображення</th>
+                <th scope="col">Формат</th>
+                <th scope="col">Розміри / viewBox</th>
+                <th scope="col">Розмір файла</th>
+                <th scope="col">Прозорість</th>
+                <th scope="col">Результат збільшення</th>
+                <th scope="col">Обґрунтування</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><!-- TODO --></td>
+                <td>JPEG</td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+              </tr>
+              <tr>
+                <td><!-- TODO --></td>
+                <td>PNG</td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+              </tr>
+              <tr>
+                <td><!-- TODO --></td>
+                <td>SVG</td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+                <td><!-- TODO --></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="work-section" aria-labelledby="canvas-title">
+        <h2 id="canvas-title">2. Композиція в Canvas</h2>
+        <p>
+          Створіть засобами JavaScript композицію відповідно до свого
+          варіанта.
+        </p>
+
+        <div class="graphics-frame">
+          <canvas id="scene-canvas" width="600" height="400">
+            Ваш браузер не підтримує HTML Canvas.
+          </canvas>
+        </div>
+      </section>
+
+      <section class="work-section" aria-labelledby="svg-title">
+        <h2 id="svg-title">3. SVG-зображення</h2>
+        <p>
+          Додайте до SVG графічні примітиви відповідно до вимог роботи та
+          свого варіанта.
+        </p>
+
+        <div class="graphics-frame">
+          <svg
+            id="scene-svg"
+            viewBox="0 0 600 400"
+            role="img"
+            aria-labelledby="svg-scene-title svg-scene-description"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title id="svg-scene-title">Композиція SVG</title>
+            <desc id="svg-scene-description">
+              Композиція за індивідуальним варіантом
+            </desc>
+            <!-- TODO: додайте SVG-примітиви -->
+          </svg>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <p>Лабораторна робота № 1 · Комп’ютерна графіка</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
