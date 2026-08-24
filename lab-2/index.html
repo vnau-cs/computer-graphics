@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Лабораторна робота № 2 з комп'ютерної графіки"
+    />
+    <title>Лабораторна робота № 2</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">Комп’ютерна графіка</p>
+        <h1>Лабораторна робота № 2</h1>
+        <p class="subtitle">Пікселі, RGB/RGBA та ImageData</p>
+
+        <dl class="student-info">
+          <div>
+            <dt>Виконав(ла):</dt>
+            <dd><!-- TODO: укажіть прізвище та ім’я --></dd>
+          </div>
+          <div>
+            <dt>Група:</dt>
+            <dd><!-- TODO: укажіть групу --></dd>
+          </div>
+          <div>
+            <dt>Варіант:</dt>
+            <dd><!-- TODO: укажіть номер варіанта --></dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="work-section" aria-labelledby="image-data-title">
+        <h2 id="image-data-title">Робота з пікселями Canvas</h2>
+        <p>
+          Сформуйте базове RGBA-зображення безпосереднім записом до
+          <code>ImageData.data</code>, а потім реалізуйте піксельний ефект
+          відповідно до свого варіанта.
+        </p>
+
+        <div class="canvas-frame">
+          <canvas id="image-canvas" width="640" height="480">
+            Ваш браузер не підтримує HTML Canvas.
+          </canvas>
+        </div>
+
+        <div class="controls" aria-label="Керування зображенням">
+          <button id="apply-effect-button" class="button" type="button">
+            Застосувати ефект
+          </button>
+          <button
+            id="reset-image-button"
+            class="button button-secondary"
+            type="button"
+          >
+            Відновити початкове зображення
+          </button>
+        </div>
+
+        <p id="image-status" class="status" role="status" aria-live="polite">
+          Початкове зображення сформовано.
+        </p>
+      </section>
+
+      <section class="work-section" aria-labelledby="notes-title">
+        <h2 id="notes-title">Опис реалізації</h2>
+        <dl class="implementation-notes">
+          <div>
+            <dt>Правило обчислення синього каналу</dt>
+            <dd><!-- TODO: опишіть формулу для B --></dd>
+          </div>
+          <div>
+            <dt>Прозора або напівпрозора ділянка</dt>
+            <dd><!-- TODO: опишіть умову зміни A --></dd>
+          </div>
+          <div>
+            <dt>Піксельний ефект</dt>
+            <dd><!-- TODO: назвіть і коротко опишіть ефект --></dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <p>Лабораторна робота № 2 · Комп’ютерна графіка · ВНАУ</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

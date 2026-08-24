@@ -1,0 +1,225 @@
+:root {
+  color: #1f2937;
+  background: #f3f4f6;
+  font-family:
+    Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.page-header {
+  padding: 3rem 0;
+  color: #ffffff;
+  background: #1e3a5f;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  color: #bfdbfe;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.35rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.1;
+}
+
+h2 {
+  color: #1e3a5f;
+}
+
+code {
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+  color: #9f1239;
+  background: #fff1f2;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  color: #dbeafe;
+  font-size: 1.2rem;
+}
+
+.student-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.student-info div {
+  min-height: 5rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 0.6rem;
+  background: rgb(255 255 255 / 8%);
+}
+
+.student-info dt {
+  color: #bfdbfe;
+  font-size: 0.85rem;
+}
+
+.student-info dd {
+  min-height: 1.5rem;
+  margin: 0.4rem 0 0;
+  font-weight: 700;
+}
+
+main {
+  padding-block: 2rem;
+}
+
+.work-section {
+  margin-bottom: 1.5rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid #dbe2ea;
+  border-radius: 0.8rem;
+  background: #ffffff;
+  box-shadow: 0 0.25rem 1rem rgb(15 23 42 / 6%);
+}
+
+.canvas-frame {
+  overflow: auto;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #e2e8f0;
+}
+
+canvas {
+  display: block;
+  width: min(100%, 640px);
+  height: auto;
+  margin-inline: auto;
+  border: 1px solid #94a3b8;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
+    linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
+  background-size: 16px 16px;
+  image-rendering: pixelated;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.7rem 1rem;
+  border: 1px solid #1d4ed8;
+  border-radius: 0.45rem;
+  color: #ffffff;
+  background: #2563eb;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+.button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.button-secondary {
+  border-color: #64748b;
+  color: #1e293b;
+  background: #ffffff;
+}
+
+.button-secondary:hover {
+  background: #f1f5f9;
+}
+
+.status {
+  min-height: 1.5rem;
+  margin: 0.75rem 0 0;
+  color: #475569;
+}
+
+.implementation-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.implementation-notes div {
+  min-height: 7rem;
+  padding: 1rem;
+  border: 1px solid #dbe2ea;
+  border-radius: 0.5rem;
+  background: #f8fafc;
+}
+
+.implementation-notes dt {
+  color: #1e3a5f;
+  font-weight: 700;
+}
+
+.implementation-notes dd {
+  margin: 0.6rem 0 0;
+}
+
+.page-footer {
+  padding: 1.5rem 0;
+  color: #475569;
+  text-align: center;
+}
+
+.page-footer p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .student-info,
+  .implementation-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
