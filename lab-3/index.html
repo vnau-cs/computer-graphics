@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Лабораторна робота № 3 з комп'ютерної графіки"
+    />
+    <title>Лабораторна робота № 3</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">Комп’ютерна графіка</p>
+        <h1>Лабораторна робота № 3</h1>
+        <p class="subtitle">Програмна растеризація трикутника</p>
+
+        <dl class="student-info">
+          <div>
+            <dt>Виконав(ла):</dt>
+            <dd><!-- TODO: укажіть прізвище та ім’я --></dd>
+          </div>
+          <div>
+            <dt>Група:</dt>
+            <dd><!-- TODO: укажіть групу --></dd>
+          </div>
+          <div>
+            <dt>Варіант:</dt>
+            <dd><!-- TODO: укажіть номер варіанта, якщо його задано --></dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="work-section" aria-labelledby="rasterizer-title">
+        <h2 id="rasterizer-title">Растеризатор трикутника</h2>
+        <p>
+          Побудуйте одноколірний трикутник безпосереднім записом пікселів до
+          <code>ImageData.data</code>. Для кожного пікселя в межах
+          обмежувального прямокутника виконайте coverage test у його центрі.
+        </p>
+
+        <div class="controls" aria-label="Керування растеризатором">
+          <label class="control-field" for="example-select">
+            <span>Контрольний приклад</span>
+            <select id="example-select">
+              <option value="regular">Звичайний трикутник</option>
+              <option value="reversed">Зворотний порядок вершин</option>
+              <option value="clipped">Частково поза межами Canvas</option>
+              <option value="degenerate">Вироджений трикутник</option>
+            </select>
+          </label>
+
+          <button id="rasterize-button" class="button" type="button">
+            Растеризувати
+          </button>
+
+          <label class="overlay-control" for="overlay-toggle">
+            <input id="overlay-toggle" type="checkbox" />
+            <span>Показати контрольний контур і вершини</span>
+          </label>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="raster-canvas" width="640" height="480">
+            Ваш браузер не підтримує HTML Canvas.
+          </canvas>
+        </div>
+
+        <p id="render-status" class="status" role="status" aria-live="polite">
+          Стартовий шаблон готовий. Реалізуйте алгоритм растеризації.
+        </p>
+
+        <dl class="rendering-stats" aria-label="Параметри растеризації">
+          <div>
+            <dt>Вершини</dt>
+            <dd id="vertices-value">—</dd>
+          </div>
+          <div>
+            <dt>Обмежувальний прямокутник</dt>
+            <dd id="bounds-value">—</dd>
+          </div>
+          <div>
+            <dt>Покрито пікселів</dt>
+            <dd id="covered-pixels-value">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="work-section" aria-labelledby="notes-title">
+        <h2 id="notes-title">Опис реалізації</h2>
+        <dl class="implementation-notes">
+          <div>
+            <dt>Edge-функція або барицентричні координати</dt>
+            <dd><!-- TODO: наведіть використану формулу --></dd>
+          </div>
+          <div>
+            <dt>Обмежувальний прямокутник</dt>
+            <dd><!-- TODO: поясніть округлення та обмеження меж --></dd>
+          </div>
+          <div>
+            <dt>Coverage test</dt>
+            <dd><!-- TODO: опишіть умову належності точки трикутнику --></dd>
+          </div>
+          <div>
+            <dt>Вироджений трикутник</dt>
+            <dd><!-- TODO: поясніть перевірку площі --></dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container">
+        <p>Лабораторна робота № 3 · Комп’ютерна графіка · ВНАУ</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
