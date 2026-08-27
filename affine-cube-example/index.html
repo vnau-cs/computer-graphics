@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Інтерактивні Three.js-демонстрації афінних перетворень куба"
+    />
+    <title>Афінні перетворення куба · Three.js</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="lesson-demo">
+      <header class="demo-header">
+        <div>
+          <p class="eyebrow">Афінні перетворення · Three.js</p>
+          <h1 id="demo-title">Перенесення у просторі</h1>
+          <p id="demo-description" class="lead">
+            Центр куба рухається вздовж відрізка від
+            <strong>P₀ = (−1, 0, −1)</strong> до
+            <strong>P₁ = (1, 0, 1)</strong>.
+          </p>
+        </div>
+
+        <div class="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="status-text">Анімація відтворюється</span>
+        </div>
+      </header>
+
+      <nav class="example-switcher" aria-label="Оберіть приклад афінного перетворення">
+        <span class="switcher-label">Приклад</span>
+        <div class="switcher-options">
+          <button
+            class="example-button is-active"
+            type="button"
+            data-example="translation"
+            aria-pressed="true"
+          >
+            <span class="example-icon example-icon--translation" aria-hidden="true">↗</span>
+            Перенесення
+          </button>
+          <button
+            class="example-button"
+            type="button"
+            data-example="rotation"
+            aria-pressed="false"
+          >
+            <span class="example-icon example-icon--rotation" aria-hidden="true">↻</span>
+            Обертання навколо Y
+          </button>
+          <button
+            class="example-button"
+            type="button"
+            data-example="scale"
+            aria-pressed="false"
+          >
+            <span class="example-icon example-icon--scale" aria-hidden="true">⤢</span>
+            Масштабування
+          </button>
+          <button
+            class="example-button"
+            type="button"
+            data-example="shear"
+            aria-pressed="false"
+          >
+            <span class="example-icon example-icon--shear" aria-hidden="true">▱</span>
+            Скошування (shear)
+          </button>
+        </div>
+      </nav>
+
+      <section id="demo-layout" class="demo-layout" aria-label="Демонстрація перенесення куба">
+        <div class="viewport-card">
+          <div id="scene" class="scene" aria-label="Тривимірна сцена з кубом">
+            <div class="scene-hint">Перетягуйте для огляду · колесо — масштаб</div>
+
+            <div id="label-start" class="point-label point-label--start">
+              P₀ <span>(−1, 0, −1)</span>
+            </div>
+            <div id="label-end" class="point-label point-label--end">
+              P₁ <span>(1, 0, 1)</span>
+            </div>
+            <div id="label-axis" class="axis-label" hidden>вісь Y</div>
+          </div>
+
+          <div class="playback" aria-label="Керування анімацією">
+            <button id="play-button" class="primary-button" type="button">
+              <span class="button-icon" aria-hidden="true">Ⅱ</span>
+              <span class="button-label">Пауза</span>
+            </button>
+
+            <button id="restart-button" class="secondary-button" type="button">
+              <span aria-hidden="true">↺</span>
+              Спочатку
+            </button>
+
+            <button
+              id="panel-toggle-button"
+              class="secondary-button panel-toggle-button"
+              type="button"
+              aria-controls="math-panel"
+              aria-expanded="true"
+            >
+              <span aria-hidden="true">▦</span>
+              <span class="panel-toggle-label">Сховати панель</span>
+            </button>
+
+            <label class="speed-control" for="speed-select">
+              Швидкість
+              <select id="speed-select">
+                <option value="0.5">0,5×</option>
+                <option value="1" selected>1×</option>
+                <option value="2">2×</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <aside id="math-panel" class="math-panel" aria-label="Математичний опис перенесення">
+          <div class="panel-section">
+            <p id="parameter-title" class="section-number">01 · Параметр руху</p>
+            <div class="progress-row">
+              <span id="parameter-symbol">t =</span>
+              <output id="t-value">0,00</output>
+            </div>
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-label="Прогрес перенесення"
+              aria-valuemin="0"
+              aria-valuemax="1"
+              aria-valuenow="0"
+            >
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="range-labels" aria-hidden="true">
+              <span>0</span>
+              <span>1</span>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <p id="formula-title" class="section-number">02 · Лінійна інтерполяція</p>
+            <p id="formula" class="formula">P(t) = P₀ + t(P₁ − P₀)</p>
+            <p id="formula-detail" class="formula-detail">
+              P(t) = (−1 + 2t, <span class="muted">0</span>, −1 + 2t)
+            </p>
+          </div>
+
+          <div class="panel-section position-section">
+            <p id="readout-title" class="section-number">03 · Поточна позиція</p>
+            <div class="position-readout" aria-live="off">
+              <span id="value-label-1" class="axis axis-x">x</span>
+              <output id="value-1">−1,00</output>
+              <span id="value-label-2" class="axis axis-y">y</span>
+              <output id="value-2">0,00</output>
+              <span id="value-label-3" class="axis axis-z">z</span>
+              <output id="value-3">−1,00</output>
+            </div>
+          </div>
+
+          <div class="panel-section matrix-section">
+            <p id="matrix-title" class="section-number">04 · Матриця перенесення T(Δ)</p>
+            <div class="matrix-row">
+              <span class="matrix-bracket" aria-hidden="true">[</span>
+              <div id="matrix-grid" class="matrix" aria-label="Матриця перенесення чотири на чотири">
+                <output id="m00">1</output><output id="m01">0</output><output id="m02">0</output><output id="m03">0,00</output>
+                <output id="m10">0</output><output id="m11">1</output><output id="m12">0</output><output id="m13">0</output>
+                <output id="m20">0</output><output id="m21">0</output><output id="m22">1</output><output id="m23">0,00</output>
+                <output id="m30">0</output><output id="m31">0</output><output id="m32">0</output><output id="m33">1</output>
+              </div>
+              <span class="matrix-bracket" aria-hidden="true">]</span>
+            </div>
+            <p id="matrix-caption" class="matrix-caption">Δ(t) = (2t, 0, 2t)</p>
+          </div>
+
+          <p id="loop-note" class="loop-note">
+            Після досягнення P₁ анімація автоматично починається з P₀.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <noscript>Для перегляду демонстрації увімкніть JavaScript.</noscript>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
